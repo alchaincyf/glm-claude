@@ -1,0 +1,26 @@
+# Source control
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Tests
+tests/
+*.test.js
+coverage/
+
+# Documentation
+docs/
+
+# Development files
+.DS_Store
+.env
+.env.*
+
+# Build artifacts
+*.log
+npm-debug.log*

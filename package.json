@@ -1,0 +1,51 @@
+{
+  "name": "glm-claude",
+  "version": "1.0.0",
+  "description": "一键启动使用 GLM 模型的 Claude Code - GLM-powered Claude Code wrapper",
+  "main": "src/index.js",
+  "bin": {
+    "glm": "./bin/glm.js"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "test": "jest",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "claude-code",
+    "glm",
+    "glm-4",
+    "glm-4.6",
+    "ai",
+    "coding-assistant",
+    "cli",
+    "zhipu",
+    "智谱",
+    "国产大模型"
+  ],
+  "author": "alchain <alchaincyf@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^2.0.0",
+    "axios": "^1.6.2",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "conf": "^10.2.0",
+    "inquirer": "^9.2.12",
+    "ora": "^7.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alchain/glm-claude.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alchain/glm-claude/issues"
+  },
+  "homepage": "https://github.com/alchain/glm-claude#readme"
+}
