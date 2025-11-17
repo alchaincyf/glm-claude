@@ -8,6 +8,7 @@ const ConfigManager = require('./config/manager');
 const { showWelcome, showConfigSuccess, showLaunchWelcome } = require('./ui/welcome');
 const { showConfigPrompts } = require('./ui/prompts');
 const { checkClaudeInstallation } = require('./utils/installer');
+const { setupClaudeMd, showSetupMessage } = require('./utils/claude-config');
 const Logger = require('./utils/logger');
 
 /**
@@ -43,6 +44,12 @@ async function launchClaudeCode(config, args = []) {
 
   // 显示 GLM Code 启动欢迎信息（简洁版）
   showLaunchWelcome();
+
+  // 自动设置品牌化的 CLAUDE.md 配置文件
+  const setupResult = setupClaudeMd();
+  if (setupResult.created) {
+    showSetupMessage(setupResult);
+  }
 
   // 设置环境变量
   const env = {

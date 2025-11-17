@@ -1,6 +1,6 @@
 {
   "name": "glm-claude",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "一键启动使用 GLM 模型的 Claude Code - GLM-powered Claude Code wrapper",
   "main": "src/index.js",
   "bin": {
@@ -25,6 +25,13 @@
   ],
   "author": "alchain <alchaincyf@gmail.com>",
   "license": "MIT",
+  "files": [
+    "bin/",
+    "src/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@anthropic-ai/claude-code": "^2.0.0",
     "axios": "^1.6.2",
