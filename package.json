@@ -1,6 +1,6 @@
 {
   "name": "glm-claude",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一键启动使用 GLM 模型的 Claude Code - GLM-powered Claude Code wrapper",
   "main": "src/index.js",
   "bin": {
