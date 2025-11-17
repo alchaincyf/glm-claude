@@ -31,6 +31,6 @@ module.exports = {
   WECHAT_PUBLIC_ACCOUNT: '花叔',
 
   // GitHub 仓库
-  GITHUB_REPO: 'https://github.com/alchain/glm-claude',
-  ISSUES_URL: 'https://github.com/alchain/glm-claude/issues'
+  GITHUB_REPO: 'https://github.com/alchaincyf/glm-claude',
+  ISSUES_URL: 'https://github.com/alchaincyf/glm-claude/issues'
 };

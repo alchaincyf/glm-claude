@@ -42,10 +42,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alchain/glm-claude.git"
+    "url": "https://github.com/alchaincyf/glm-claude.git"
   },
   "bugs": {
-    "url": "https://github.com/alchain/glm-claude/issues"
+    "url": "https://github.com/alchaincyf/glm-claude/issues"
   },
-  "homepage": "https://github.com/alchain/glm-claude#readme"
+  "homepage": "https://github.com/alchaincyf/glm-claude#readme"
 }
