@@ -46,25 +46,15 @@ function showConfigSuccess() {
  * 显示启动前的欢迎信息
  */
 function showLaunchWelcome() {
-  console.clear();
+  // 简洁的单行欢迎信息，不清屏，不打断用户
+  const welcomeLine =
+    chalk.cyan('🎉 ') +
+    chalk.bold.cyan(PROJECT_NAME) +
+    chalk.gray(` by ${PROJECT_AUTHOR}`) +
+    chalk.gray(' | ') +
+    chalk.gray(`问题反馈：公众号「${WECHAT_PUBLIC_ACCOUNT}」`);
 
-  const welcomeMessage =
-    chalk.bold.cyan(`🎉 ${PROJECT_NAME}`) + '\n\n' +
-    chalk.gray(PROJECT_DESCRIPTION) + '\n\n' +
-    chalk.yellow.bold(`👨‍💻 作者：${PROJECT_AUTHOR}`) + '\n' +
-    chalk.green('感谢你的支持！') + '\n\n' +
-    chalk.cyan('💬 问题反馈：') + '\n' +
-    chalk.gray(`   关注公众号「${WECHAT_PUBLIC_ACCOUNT}」进行反馈`);
-
-  console.log(boxen(welcomeMessage, {
-    padding: 1,
-    margin: 1,
-    borderStyle: 'round',
-    borderColor: 'cyan',
-    textAlignment: 'center'
-  }));
-
-  console.log('');
+  console.log('\n' + welcomeLine + '\n');
 }
 
 module.exports = {
