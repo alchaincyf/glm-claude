@@ -25,8 +25,10 @@ module.exports = {
   CONFIG_NAME: 'glm-claude',
 
   // 项目信息
-  PROJECT_NAME: 'GLM Claude',
+  PROJECT_NAME: 'GLM Code',
   PROJECT_DESCRIPTION: '智谱 GLM 驱动的 Claude Code',
+  PROJECT_AUTHOR: '花叔',
+  WECHAT_PUBLIC_ACCOUNT: '花叔',
 
   // GitHub 仓库
   GITHUB_REPO: 'https://github.com/alchain/glm-claude',
