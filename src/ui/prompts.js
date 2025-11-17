@@ -15,11 +15,15 @@ const { validateApiKey, validateApiKeyFormat } = require('../config/validator');
 function showApiKeyGuide() {
   console.log('\n' + boxen(
     chalk.cyan.bold('📱 如何获取 GLM API Key') + '\n\n' +
-    chalk.gray('1. 访问: ') + chalk.cyan(GLM_API_WEBSITE) + '\n' +
-    chalk.gray('2. 注册/登录账号\n') +
-    chalk.gray('3. 进入「API 管理」\n') +
-    chalk.gray('4. 创建 API Key\n') +
-    chalk.gray('5. 复制 API Key 并粘贴到下方'),
+    chalk.yellow.bold('方式一：订阅 GLM 服务（推荐）') + '\n' +
+    chalk.green('  低至 20 元/月，性价比高\n') +
+    chalk.cyan('  订阅链接：https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR') + '\n\n' +
+    chalk.yellow.bold('方式二：使用免费额度') + '\n' +
+    chalk.gray('  1. 访问: ') + chalk.cyan(GLM_API_WEBSITE) + '\n' +
+    chalk.gray('  2. 注册/登录账号\n') +
+    chalk.gray('  3. 进入「API 管理」\n') +
+    chalk.gray('  4. 创建 API Key\n') +
+    chalk.gray('  5. 复制 API Key 并粘贴到下方'),
     {
       padding: 1,
       borderColor: 'cyan',
@@ -34,10 +38,15 @@ function showApiKeyGuide() {
  */
 function showSubscriptionInfo() {
   console.log('\n' + boxen(
-    chalk.yellow.bold('💡 关于订阅') + '\n\n' +
-    chalk.gray('GLM API 提供免费额度和付费套餐\n') +
-    chalk.gray('访问 ') + chalk.cyan(GLM_API_WEBSITE) + chalk.gray(' 查看详情\n\n') +
-    chalk.gray('免费额度通常足够个人开发使用'),
+    chalk.yellow.bold('💰 订阅 GLM 服务（推荐）') + '\n\n' +
+    chalk.cyan.bold('价格实惠：') + chalk.green(' 低至 20 元/月') + '\n' +
+    chalk.gray('  • Claude 官方订阅价格的 1/7\n') +
+    chalk.gray('  • 支持支付宝、微信支付\n') +
+    chalk.gray('  • 即开即用，无需等待\n\n') +
+    chalk.cyan.bold('订阅链接：\n') +
+    chalk.green('  https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR') + '\n\n' +
+    chalk.gray('或使用免费额度：\n') +
+    chalk.gray('  访问 ') + chalk.cyan(GLM_API_WEBSITE) + chalk.gray(' 注册获取'),
     {
       padding: 1,
       borderColor: 'yellow',

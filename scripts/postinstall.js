@@ -20,8 +20,11 @@ const message =
   chalk.gray('  1. 在任意项目目录运行: ') + chalk.yellow('glm') + '\n' +
   chalk.gray('  2. 首次使用会引导你配置 API Key\n') +
   chalk.gray('  3. 开始享受 AI 编程的乐趣!\n\n') +
-  chalk.cyan.bold('获取 API Key:') + '\n' +
-  chalk.gray('  访问 ') + chalk.cyan('https://open.bigmodel.cn/') + '\n\n' +
+  chalk.cyan.bold('💰 订阅 GLM 服务（推荐）:') + '\n' +
+  chalk.green('  低至 20 元/月，仅为 Claude 官方价格的 1/7\n') +
+  chalk.yellow('  订阅链接: ') + chalk.cyan('https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR') + '\n\n' +
+  chalk.cyan.bold('或使用免费额度:') + '\n' +
+  chalk.gray('  访问 ') + chalk.cyan('https://open.bigmodel.cn/') + chalk.gray(' 注册获取\n\n') +
   chalk.cyan.bold('查看帮助:') + '\n' +
   chalk.gray('  运行 ') + chalk.yellow('glm --help') + chalk.gray(' 查看所有命令\n\n') +
   chalk.cyan.bold('配置管理:') + '\n' +

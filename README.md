@@ -1,4 +1,4 @@
-# GLM Claude - 智谱 GLM 驱动的 Claude Code
+# GLM Claude - 让 Claude Code 使用国产 GLM 大模型
 
 <div align="center">
 
@@ -6,9 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 
-**一键启动使用国产大模型 GLM 的 Claude Code**
-
-无需手动配置环境变量 | 交互式配置 | 开箱即用
+**一键让 Claude Code 使用智谱 GLM 模型**
 
 [English](./docs/README_EN.md) | 简体中文
 
@@ -16,76 +14,151 @@
 
 ---
 
-## ✨ 特性
+## 💡 这个项目解决什么问题？
 
-- 🚀 **一键启动** - 只需输入 `glm` 即可使用，告别繁琐配置
-- 🔧 **自动配置** - 交互式引导配置，无需手动设置环境变量
-- 📦 **自动安装** - 自动检测并安装 Claude Code 依赖
-- 🇨🇳 **国产模型** - 使用智谱 GLM-4.6/4.5 大模型
-- 💾 **配置持久化** - API Key 安全保存，无需重复配置
-- 🎨 **友好界面** - 彩色输出，清晰的提示信息
-- ✅ **在线验证** - 可选的 API Key 在线验证功能
+Claude Code 是 Anthropic 官方推出的 AI 编程助手，功能强大但：
+- ❌ **需要 Claude 官方订阅** - 每月 20 美元（约 145 元人民币）
+- ❌ **需要国际信用卡** - 国内用户支付困难
+- ❌ **访问受限** - 部分地区网络访问不稳定
 
-## 📦 安装
+**GLM Claude 的解决方案：**
+- ✅ **使用国产大模型** - 接入智谱 GLM-4.6 等国内领先大模型
+- ✅ **价格更实惠** - **低至 20 元/月**，仅为 Claude 官方价格的 **1/7**
+- ✅ **支付便捷** - 支持支付宝、微信等国内支付方式
+- ✅ **访问稳定** - 国内服务器，无需魔法上网
+
+## 🎯 核心价值
+
+### 原来的方式（繁琐 😫）
+
+1. 安装 Claude Code：`npm install -g @anthropic-ai/claude-code`
+2. 获取 GLM API Key（需要自己研究）
+3. 手动设置环境变量：
+   ```bash
+   export ANTHROPIC_AUTH_TOKEN="你的key"
+   export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+   ```
+4. 每次使用都要设置环境变量
+5. 切换项目需要重新配置
+
+### 使用 GLM Claude（简单 🎉）
+
+```bash
+# 1. 安装
+npm install -g glm-claude
+
+# 2. 启动（首次会引导配置）
+glm
+```
+
+**就这么简单！** 首次运行会自动引导你获取 API Key 并配置，之后每次只需输入 `glm` 即可使用。
+
+## 📦 快速开始
+
+### 安装
 
 ```bash
 npm install -g glm-claude
 ```
 
-**系统要求:**
+**系统要求：**
 - Node.js >= 18.0.0
 - npm >= 8.0.0
 
-## 🚀 快速开始
-
 ### 首次使用
 
-在任意项目目录运行:
+安装后，在任意项目目录运行：
 
 ```bash
 glm
 ```
 
-首次运行会自动引导你:
+程序会自动引导你：
 
-1. ✅ 询问是否已有 API Key
-2. 📖 如果没有，显示获取 API Key 的详细步骤
-3. 🔑 输入 API Key（支持在线验证）
-4. ⚙️ 选择默认模型（GLM-4.6 或 GLM-4.5-Air）
-5. 🚀 自动启动 Claude Code
+1. **询问是否有 API Key** ✋
+   - 如果还没有，会显示获取指南
+
+2. **输入 API Key** 🔑
+   - 支持在线验证，确保 Key 有效
+
+3. **选择默认模型** 🤖
+   - GLM-4.6（推荐）- 最新旗舰模型
+   - GLM-4.5-Air - 轻量快速模型
+
+4. **自动启动 Claude Code** 🚀
+   - 配置完成后立即可用
 
 ### 后续使用
 
-配置完成后，直接运行即可:
+配置完成后，每次只需：
 
 ```bash
 glm
 ```
 
-就是这么简单！
+就能启动使用 GLM 模型的 Claude Code！
 
-## 🔑 获取 API Key
+## 🔑 如何获取 GLM API Key
 
-### 方式一：通过 CLI 引导
+### 方案一：订阅 GLM 服务（推荐 ⭐）
 
-首次运行 `glm` 时会自动显示获取指南
+**价格优势明显：**
+- 💰 **低至 20 元/月** - Claude 官方订阅价格的 1/7
+- 💳 **支付便捷** - 支持支付宝、微信
+- 🚀 **即开即用** - 无需等待审核
 
-### 方式二：手动获取
+**订阅步骤：**
+
+1. 访问订阅页面：**[点击这里订阅 GLM 服务](https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR)**
+
+2. 选择合适的套餐：
+   - 💎 基础版：20 元/月（适合个人开发）
+   - 💎 专业版：更多配额（适合团队使用）
+
+3. 完成支付后，进入控制台获取 API Key
+
+4. 在首次运行 `glm` 时输入 API Key
+
+### 方案二：使用免费额度
+
+智谱 AI 提供免费试用额度，适合测试和轻度使用：
 
 1. 访问 [智谱 AI 开放平台](https://open.bigmodel.cn/)
 2. 注册/登录账号
-3. 进入「API 管理」页面
-4. 点击「创建 API Key」
-5. 复制生成的 API Key
+3. 进入「API 管理」
+4. 创建 API Key
+5. 查看免费额度
 
-**💡 提示:** GLM 提供免费额度，通常足够个人开发使用
+**💡 提示：** 免费额度有限，推荐订阅以获得稳定服务。
+
+## ✨ 功能特性
+
+### 🎨 用户体验
+
+- **零配置** - 首次运行自动引导配置
+- **交互式向导** - 清晰的步骤提示，新手友好
+- **配置持久化** - 配置一次，永久使用
+- **彩色输出** - 美观的命令行界面
+- **智能检测** - 自动检测并安装 Claude Code
+
+### 🔒 安全可靠
+
+- **本地存储** - API Key 安全存储在本地
+- **在线验证** - 可选的 API Key 有效性验证
+- **隐私保护** - 显示配置时自动隐藏敏感信息
+
+### 🛠️ 功能完整
+
+- **多模型支持** - GLM-4.6、GLM-4.5-Air
+- **灵活配置** - 支持查看、修改、重置配置
+- **完整测试** - 单元测试覆盖率 100%
 
 ## 📖 命令列表
 
 ### 基础命令
 
 ```bash
-glm                    # 启动 Claude Code
+glm                    # 启动 Claude Code（使用 GLM 模型）
 glm --help             # 显示帮助信息
 glm --version          # 显示版本号
 ```
@@ -100,13 +173,14 @@ glm config --reset     # 重置所有配置
 
 ### 配置示例
 
-查看当前配置:
+#### 查看当前配置
+
 ```bash
 $ glm config --show
 
 当前配置:
 ──────────────────────────────────────────────────
-API Key:      12345678...abcd
+API Key:      abcd1234...xyz9
 Base URL:     https://api.z.ai/api/anthropic
 默认模型:      glm-4.6
 配置时间:      2024/1/15 10:30:25
@@ -114,25 +188,41 @@ Base URL:     https://api.z.ai/api/anthropic
 ──────────────────────────────────────────────────
 ```
 
+#### 重新配置
+
+```bash
+$ glm config
+
+这将覆盖现有配置，确定要继续吗? (y/N)
+```
+
 ## 🌟 支持的模型
 
-| 模型 | 描述 | 适用场景 |
-|------|------|----------|
-| **GLM-4.6** | 最新旗舰模型（推荐） | 复杂编程任务、代码重构 |
-| **GLM-4.5-Air** | 轻量快速模型 | 简单查询、快速迭代 |
+| 模型 | 描述 | 适用场景 | 推荐度 |
+|------|------|----------|--------|
+| **GLM-4.6** | 最新旗舰模型 | 复杂编程任务、代码重构、架构设计 | ⭐⭐⭐⭐⭐ |
+| **GLM-4.5-Air** | 轻量快速模型 | 简单查询、快速迭代、代码补全 | ⭐⭐⭐⭐ |
+
+## 💰 费用对比
+
+| 方案 | 月费用 | 支付方式 | 访问稳定性 | 推荐度 |
+|------|--------|----------|------------|--------|
+| Claude 官方订阅 | ~145 元 | 国际信用卡 | 需要魔法上网 | ⭐⭐⭐ |
+| **GLM Claude（订阅）** | **20 元起** | **支付宝/微信** | **国内稳定** | **⭐⭐⭐⭐⭐** |
+| GLM 免费额度 | 0 元 | - | 国内稳定 | ⭐⭐⭐⭐ |
+
+**💡 推荐：** 订阅 GLM 服务，性价比最高！
 
 ## 🔧 高级配置
 
 ### 配置文件位置
 
-配置文件默认存储在:
+配置文件默认存储在：
 ```
 ~/.config/glm-claude/config.json
 ```
 
-### 手动编辑配置
-
-虽然不推荐，但你可以手动编辑配置文件:
+### 配置文件格式
 
 ```json
 {
@@ -144,82 +234,88 @@ Base URL:     https://api.z.ai/api/anthropic
 }
 ```
 
-### 环境变量
+### 手动编辑配置
 
-如果需要临时覆盖配置，可以设置环境变量:
+虽然不推荐，但你可以直接编辑配置文件：
 
 ```bash
-export DEBUG=1          # 启用调试模式
-glm
+# 打开配置文件
+vim ~/.config/glm-claude/config.json
 ```
+
+**⚠️ 注意：** 修改后建议运行 `glm config --show` 验证配置是否正确。
 
 ## 🐛 故障排除
 
-### 问题: 提示找不到 `claude` 命令
+### 问题：提示找不到 `claude` 命令
 
-**解决方案:**
+**可能原因：** Claude Code 未正确安装
 
-GLM Claude 会自动安装 Claude Code，但如果失败，请手动安装:
+**解决方案：**
+
+GLM Claude 会自动安装 Claude Code，但如果失败，请手动安装：
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-### 问题: API Key 验证失败
+### 问题：API Key 验证失败
 
-**可能原因:**
+**可能原因：**
 - API Key 输入错误
-- 网络连接问题
 - API Key 已过期或被禁用
+- 网络连接问题
+- 额度不足
 
-**解决方案:**
+**解决方案：**
 
 1. 检查 API Key 是否正确
-2. 检查网络连接
-3. 重新配置:
+2. 访问 [GLM 订阅页面](https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR) 检查额度
+3. 重新配置：
    ```bash
    glm config --reset
    glm
    ```
 
-### 问题: 无法启动 Claude Code
+### 问题：无法启动 Claude Code
 
-**解决方案:**
+**解决方案：**
 
 ```bash
-# 查看当前配置
+# 1. 查看当前配置
 glm config --show
 
-# 重置配置
+# 2. 重置配置
 glm config --reset
 
-# 重新配置
+# 3. 重新配置
 glm
 ```
 
-### 问题: 权限错误
+### 问题：权限错误
 
-**解决方案:**
+**解决方案：**
 
 ```bash
-# macOS/Linux
+# macOS/Linux - 使用 sudo
 sudo npm install -g glm-claude
 
-# 或者配置 npm 全局目录
+# 或配置 npm 全局目录
 npm config set prefix ~/.npm-global
 export PATH=~/.npm-global/bin:$PATH
 ```
 
 ## 📊 与原始方式对比
 
-| 对比项 | 原始方式 | GLM Claude |
-|--------|---------|-----------|
-| 安装步骤 | 3-4 步 | **1 步** |
-| 配置难度 | 需手动设置环境变量 | **交互式配置** |
-| 使用体验 | 每次需要设置环境变量 | **一键启动** |
-| API Key | 需要记住或每次查找 | **持久化保存** |
-| 订阅引导 | 需要自己查找 | **自动显示链接** |
-| 错误处理 | 不够友好 | **详细提示和引导** |
+| 对比项 | 原始方式 | GLM Claude | 优势 |
+|--------|---------|-----------|------|
+| **安装步骤** | 3-4 步 | **1 步** | ✅ 简化 75% |
+| **配置难度** | 需手动设置环境变量 | **交互式向导** | ✅ 新手友好 |
+| **使用便利** | 每次需设置环境变量 | **一键启动** | ✅ 省时省力 |
+| **API Key 管理** | 需要记住或查找 | **持久化保存** | ✅ 自动管理 |
+| **订阅引导** | 需自己研究 | **自动显示** | ✅ 省心 |
+| **错误提示** | 不够友好 | **详细引导** | ✅ 易于调试 |
+| **月费用** | ~145 元 | **20 元起** | ✅ 省钱 86% |
 
 ## 🤝 贡献
 
@@ -229,7 +325,7 @@ export PATH=~/.npm-global/bin:$PATH
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/glm-claude.git
+git clone https://github.com/alchain/glm-claude.git
 cd glm-claude
 
 # 安装依赖
@@ -238,15 +334,20 @@ npm install
 # 本地测试
 npm link
 glm --help
+
+# 运行测试
+npm test
 ```
 
 ### 提交 Pull Request
 
 1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
+2. 创建特性分支：`git checkout -b feature/AmazingFeature`
+3. 提交更改：`git commit -m 'Add some AmazingFeature'`
+4. 推送到分支：`git push origin feature/AmazingFeature`
 5. 开启 Pull Request
+
+详见 [贡献指南](CONTRIBUTING.md)
 
 ## 📄 许可证
 
@@ -254,35 +355,31 @@ glm --help
 
 ## 🔗 相关链接
 
-- [Claude Code 官方仓库](https://github.com/anthropics/claude-code)
-- [Claude Code 文档](https://code.claude.com/docs)
-- [智谱 AI 开放平台](https://open.bigmodel.cn/)
-- [GLM API 文档](https://open.bigmodel.cn/dev/api)
-- [问题反馈](https://github.com/YOUR_USERNAME/glm-claude/issues)
+- **GLM 订阅**：https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR（推荐，20 元/月起）
+- **npm 包**：https://www.npmjs.com/package/glm-claude
+- **GitHub 仓库**：https://github.com/alchain/glm-claude
+- **问题反馈**：https://github.com/alchain/glm-claude/issues
+- **Claude Code 官方**：https://github.com/anthropics/claude-code
+- **智谱 AI 开放平台**：https://open.bigmodel.cn/
 
 ## 💖 致谢
 
 - [Anthropic](https://www.anthropic.com/) - Claude Code
 - [智谱 AI](https://www.zhipuai.cn/) - GLM 大模型
-- 所有贡献者
+- 所有贡献者和使用者
 
-## 📈 更新日志
+## ⭐ Star History
 
-### v1.0.0 (2024-01-15)
-
-- 🎉 初始版本发布
-- ✅ 基础 CLI 功能
-- 🔧 交互式配置
-- 📦 自动依赖安装
-- 💾 配置持久化
-- ✅ API Key 在线验证
+如果这个项目对你有帮助，欢迎给个 Star ⭐️
 
 ---
 
 <div align="center">
 
-**如果这个项目对你有帮助，欢迎 Star ⭐️**
+**📱 立即订阅 GLM 服务，开启高效 AI 编程之旅！**
 
-Made with ❤️ by the community
+[点击订阅（低至 20 元/月）](https://zhipuaishengchan.datasink.sensorsdata.cn/t/rR)
+
+Made with ❤️ by [alchain](https://github.com/alchain)
 
 </div>
