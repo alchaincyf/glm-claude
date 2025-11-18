@@ -5,10 +5,11 @@
 const { spawn } = require('child_process');
 const chalk = require('chalk');
 const ConfigManager = require('./config/manager');
-const { showWelcome, showConfigSuccess, showLaunchWelcome } = require('./ui/welcome');
+const { showWelcome, showConfigSuccess, showLaunchWelcome, showSkillsInstalled } = require('./ui/welcome');
 const { showConfigPrompts } = require('./ui/prompts');
 const { checkClaudeInstallation } = require('./utils/installer');
 const { setupClaudeMd, showSetupMessage } = require('./utils/claude-config');
+const { installSkills, areSkillsInstalled } = require('./utils/skills-installer');
 const Logger = require('./utils/logger');
 
 /**
@@ -30,6 +31,17 @@ async function setupFirstTime(config) {
 
   // 短暂延迟，让用户看到成功信息
   await new Promise(resolve => setTimeout(resolve, 1500));
+
+  // 安装 Skills（如果还未安装）
+  if (!areSkillsInstalled()) {
+    Logger.info('正在安装专业技能包...')
+    const success = await installSkills()
+    if (success) {
+      showSkillsInstalled()
+      // 更长的延迟，让用户看到技能安装信息
+      await new Promise(resolve => setTimeout(resolve, 3000))
+    }
+  }
 }
 
 /**
@@ -97,6 +109,16 @@ async function runCLI(args = []) {
     // 1. 检查是否已配置
     if (!config.hasApiKey()) {
       await setupFirstTime(config);
+    } else {
+      // 已配置用户，检查是否需要安装 Skills
+      if (!areSkillsInstalled()) {
+        Logger.info('检测到专业技能包未安装，正在为你安装...')
+        const success = await installSkills()
+        if (success) {
+          showSkillsInstalled()
+          await new Promise(resolve => setTimeout(resolve, 2000))
+        }
+      }
     }
 
     // 2. 验证 Claude Code 是否已安装

@@ -1,7 +1,7 @@
 {
   "name": "glm-claude",
-  "version": "1.2.0",
-  "description": "一键启动使用 GLM 模型的 Claude Code - GLM-powered Claude Code wrapper",
+  "version": "1.3.0",
+  "description": "一键启动使用 GLM 模型的 Claude Code，预装10个专业技能 - GLM-powered Claude Code wrapper with professional skills",
   "main": "src/index.js",
   "bin": {
     "glm": "./bin/glm.js"
@@ -13,15 +13,19 @@
   },
   "keywords": [
     "claude-code",
+    "claude-skills",
     "glm",
     "glm-4",
     "glm-4.6",
     "ai",
     "coding-assistant",
+    "content-creation",
+    "video-production",
     "cli",
     "zhipu",
     "智谱",
-    "国产大模型"
+    "国产大模型",
+    "专业技能"
   ],
   "author": "alchain <alchaincyf@gmail.com>",
   "license": "MIT",
@@ -29,6 +33,7 @@
     "bin/",
     "src/",
     "scripts/",
+    "skills/",
     "README.md",
     "LICENSE"
   ],

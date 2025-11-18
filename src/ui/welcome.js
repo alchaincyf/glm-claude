@@ -5,6 +5,7 @@
 const chalk = require('chalk');
 const boxen = require('boxen');
 const { PROJECT_NAME, PROJECT_DESCRIPTION, PROJECT_AUTHOR, WECHAT_PUBLIC_ACCOUNT } = require('../config/constants');
+const { showInstalledSkills } = require('../utils/skills-installer');
 
 /**
  * 显示欢迎信息
@@ -33,7 +34,7 @@ function showConfigSuccess() {
   console.log('\n' + boxen(
     chalk.green.bold('✅ 配置完成!') + '\n\n' +
     chalk.gray('即将启动 Claude Code...') + '\n' +
-    chalk.gray('你可以开始享受 AI 编程的乐趣了!'),
+    chalk.gray('正在为你安装专业技能包...'),
     {
       padding: 1,
       borderStyle: 'round',
@@ -57,8 +58,35 @@ function showLaunchWelcome() {
   console.log('\n' + welcomeLine + '\n');
 }
 
+/**
+ * 显示 Skills 安装完成信息
+ */
+function showSkillsInstalled() {
+  console.log('\n' + boxen(
+    chalk.green.bold('🚀 专业技能包安装完成!') + '\n\n' +
+    chalk.gray('你已获得以下专业能力:') + '\n' +
+    chalk.white('  • AI味审校 - 降低AI检测率，增加人味') + '\n' +
+    chalk.white('  • 图片配图与上传 - 自动生成文章配图') + '\n' +
+    chalk.white('  • 个人素材库搜索 - 搜索真实经历案例') + '\n' +
+    chalk.white('  • 视频封标与承接检查 - 优化视频点击率') + '\n' +
+    chalk.gray('  ... 等10个专业技能\n') +
+    chalk.gray('现在你可以直接使用这些专业能力了!'),
+    {
+      padding: 1,
+      borderStyle: 'round',
+      borderColor: 'yellow'
+    }
+  ));
+
+  // 显示已安装的技能列表
+  setTimeout(() => {
+    showInstalledSkills();
+  }, 1000);
+}
+
 module.exports = {
   showWelcome,
   showConfigSuccess,
-  showLaunchWelcome
+  showLaunchWelcome,
+  showSkillsInstalled
 };
