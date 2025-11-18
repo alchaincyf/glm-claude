@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * GLM Claude CLI 入口点
+ * GLM Code CLI 入口点
  */
 
 const { main } = require('../src/index');

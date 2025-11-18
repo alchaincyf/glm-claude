@@ -1,5 +1,5 @@
 /**
- * GLM Claude 配置常量
+ * GLM Code 配置常量
  */
 
 module.exports = {

@@ -1,5 +1,5 @@
 /**
- * GLM Claude - 主入口文件
+ * GLM Code - 主入口文件
  * 智谱 GLM 驱动的 Claude Code
  */
 
@@ -14,7 +14,7 @@ const packageJson = require('../package.json');
  * 显示帮助信息
  */
 function showHelp() {
-  console.log(chalk.cyan.bold('\nGLM Claude v' + packageJson.version));
+  console.log(chalk.cyan.bold('\nGLM Code v' + packageJson.version));
   console.log(chalk.gray(packageJson.description + '\n'));
   console.log(chalk.white('用法:'));
   console.log(chalk.gray('  glm                    ') + '启动 Claude Code（使用 GLM 模型）');
@@ -91,7 +91,7 @@ async function main() {
 
     // 处理版本命令
     if (args.includes('-v') || args.includes('--version')) {
-      console.log('GLM Claude v' + packageJson.version);
+  console.log('GLM Code v' + packageJson.version);
       return;
     }
 

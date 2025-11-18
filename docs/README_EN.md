@@ -1,4 +1,4 @@
-# GLM Claude - Claude Code Powered by GLM
+# GLM Code - Claude Code Powered by GLM
 
 <div align="center">
 
@@ -130,7 +130,7 @@ npm install -g @anthropic-ai/claude-code
 
 ## 📊 Comparison
 
-| Feature | Original Way | GLM Claude |
+| Feature | Original Way | GLM Code |
 |---------|-------------|-----------|
 | Install Steps | 3-4 steps | **1 step** |
 | Configuration | Manual env vars | **Interactive** |
