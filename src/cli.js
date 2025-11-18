@@ -2,12 +2,12 @@
  * CLI 主逻辑
  */
 
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
 const chalk = require('chalk');
+const os = require('os');
 const ConfigManager = require('./config/manager');
 const { showWelcome, showConfigSuccess, showLaunchWelcome, showSkillsInstalled } = require('./ui/welcome');
 const { showConfigPrompts } = require('./ui/prompts');
-const { checkClaudeInstallation } = require('./utils/installer');
 const { setupClaudeMd, showSetupMessage } = require('./utils/claude-config');
 const { installSkills, areSkillsInstalled } = require('./utils/skills-installer');
 const Logger = require('./utils/logger');
@@ -42,6 +42,63 @@ async function setupFirstTime(config) {
       await new Promise(resolve => setTimeout(resolve, 3000))
     }
   }
+}
+
+/**
+ * 确保 Claude Code 为最新版本
+ */
+function ensureClaudeCodeLatest() {
+  try {
+    // 静默安装/更新 Claude Code，很快（已安装时只检查版本）
+    execSync('npm install -g @anthropic-ai/claude-code', {
+      stdio: 'ignore',
+      env: process.env
+    });
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+/**
+ * 显示详细的错误恢复指引
+ */
+function showDetailedErrorGuide(error) {
+  const isWindows = os.platform() === 'win32';
+
+  console.log(chalk.red.bold('\n❌ 启动 Claude Code 失败\n'));
+
+  console.log(chalk.cyan('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'));
+
+  if (isWindows) {
+    console.log(chalk.yellow.bold('Windows 用户（最常见）：'));
+    console.log(chalk.white('  ✓ Claude Code 已安装，但终端未识别新命令\n'));
+
+    console.log(chalk.green.bold('  解决方法：'));
+    console.log(chalk.cyan('  1️⃣  关闭当前终端（命令提示符/PowerShell）'));
+    console.log(chalk.cyan('  2️⃣  重新打开终端'));
+    console.log(chalk.cyan('  3️⃣  再次运行：') + chalk.yellow.bold(' glm\n'));
+
+    console.log(chalk.white('  如果还是不行：'));
+    console.log(chalk.cyan('  4️⃣  以管理员身份运行终端'));
+    console.log(chalk.cyan('  5️⃣  执行：') + chalk.gray('npm install -g @anthropic-ai/claude-code'));
+    console.log(chalk.cyan('  6️⃣  重新打开终端，运行：') + chalk.yellow.bold(' glm\n'));
+  } else {
+    console.log(chalk.yellow.bold('Mac/Linux 用户：'));
+    console.log(chalk.green.bold('  解决方法：'));
+    console.log(chalk.cyan('  1️⃣  运行：') + chalk.gray('npm install -g @anthropic-ai/claude-code'));
+    console.log(chalk.cyan('  2️⃣  如果权限错误，使用：') + chalk.gray('sudo npm install -g @anthropic-ai/claude-code'));
+    console.log(chalk.cyan('  3️⃣  重启终端，运行：') + chalk.yellow.bold(' glm\n'));
+
+    console.log(chalk.white('  检查 PATH：'));
+    console.log(chalk.gray('  - 运行：which claude'));
+    console.log(chalk.gray('  - 确保显示了 claude 的路径\n'));
+  }
+
+  console.log(chalk.white('需要帮助？'));
+  console.log(chalk.cyan('  📱  关注公众号「花叔」获取技术支持'));
+  console.log(chalk.cyan('  🔗  https://github.com/alchaincyf/glm-claude/issues'));
+  console.log(chalk.cyan('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'));
 }
 
 /**
@@ -85,8 +142,8 @@ async function launchClaudeCode(config, args = []) {
     });
 
     claude.on('error', (error) => {
-      Logger.error('启动 Claude Code 失败');
-      console.error(chalk.red(error.message));
+      // 显示详细的错误恢复指引
+      showDetailedErrorGuide(error);
       reject(error);
     });
 
@@ -121,8 +178,13 @@ async function runCLI(args = []) {
       }
     }
 
-    // 2. 验证 Claude Code 是否已安装
-    await checkClaudeInstallation();
+    // 2. 确保 Claude Code 为最新版本（移除检测逻辑，直接更新）
+    Logger.info('正在确保 Claude Code 为最新版本...');
+    const ensureSuccess = ensureClaudeCodeLatest();
+
+    if (!ensureSuccess) {
+      Logger.warn('Claude Code 更新失败，将尝试使用现有版本启动');
+    }
 
     // 3. 启动 Claude Code
     const { exitCode, hasApiError } = await launchClaudeCode(config, args);
@@ -139,7 +201,10 @@ async function runCLI(args = []) {
     process.exit(exitCode);
 
   } catch (error) {
-    Logger.error('发生错误: ' + error.message);
+    // 错误已经在 launchClaudeCode 中处理了，这里只处理其他未预期的错误
+    if (!error.message.includes('spawn claude')) {
+      Logger.error('发生未预期的错误: ' + error.message);
+    }
 
     if (process.env.DEBUG) {
       console.error(error);

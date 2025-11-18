@@ -1,6 +1,6 @@
 {
   "name": "glm-claude",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "一键启动使用 GLM 模型的 Claude Code，预装10个专业技能 - GLM-powered Claude Code wrapper with professional skills",
   "main": "src/index.js",
   "bin": {
