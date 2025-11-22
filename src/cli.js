@@ -54,6 +54,20 @@ function ensureClaudeCodeLatest() {
       stdio: 'ignore',
       env: process.env
     });
+
+    // Windows 专用：将 npm 全局 bin 目录注入当前进程的 PATH
+    // 解决 Windows 终端不自动刷新 PATH 的问题
+    if (os.platform() === 'win32') {
+      try {
+        const npmBinDir = execSync('npm bin -g', { encoding: 'utf8' }).trim();
+        if (npmBinDir && !process.env.PATH.includes(npmBinDir)) {
+          process.env.PATH = `${npmBinDir};${process.env.PATH}`;
+        }
+      } catch (pathError) {
+        // 获取 npm bin 目录失败，忽略错误，后续启动时会显示详细指引
+      }
+    }
+
     return true;
   } catch (error) {
     return false;
